@@ -88,18 +88,24 @@
     <ClInclude Include="kCmd.h" />
     <ClInclude Include="kos.h" />
     <ClInclude Include="kScreen.h" />
+    <ClInclude Include="kString.h" />
     <ClInclude Include="kTextUtils.h" />
     <ClInclude Include="kTypes.h" />
     <ClInclude Include="kUEFI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="kCmd.c" />
     <ClCompile Include="kos.c" />
     <ClCompile Include="kScreen.c" />
+    <ClCompile Include="kString.c" />
     <ClCompile Include="kTextUtils.c" />
     <ClCompile Include="kUEFI.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\k.inf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="style.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

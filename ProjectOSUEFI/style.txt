@@ -1,0 +1,53 @@
+Coding style & conventions :
+This project follow NASA C Style convention with some modifications
+Refer in priority to this file, instead see
+	http://homepages.inf.ed.ac.uk/dts/pm/Papers/nasa-c-style.pdf
+	OR if down
+	http://web.archive.org/web/20190125125043/http://homepages.inf.ed.ac.uk/dts/pm/Papers/nasa-c-style.pdf
+
+Functions parameters ordering :
+	1> input variables: value, const
+	2> input/output variables : non const ptr
+	3> output variables : non const ptr
+
+Naming:
+	Functions> Each first char of a word is capitalized without underscore
+	Variables> No capitalization, words separated with underscore
+	Constants> All upper-case with underscore to separate words
+
+	
+
+Files : 
+Any .c file MUST have a .h file with same name
+all .h file must have a prolog with the form :
+/********************************************************************/
+ /** \file: MANDATORY
+ *
+ * \brief: MANDATORY 
+ * 
+ * Source: <MANDATORY> 
+ * EXTERNAL VARIABLES: 
+ * 
+ * Name Description 
+ * ---- ----------- 
+ * NONE NONE
+ * 
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ * 
+ * NOTES: NONE
+ * 
+ * DEVELOPMENT HISTORY: 
+ * 
+ * jj/MM/yyyy Author Version Description Of Change 
+ * ---------- ------ ------- --------------------- 
+ * MANDATORY  MANDAT NONE    MANDATORY
+ **/
+ /*******************************************************************/
+
+ MANDATORY fields MUST be replaced
+ NONE fields can be let to NONE
+
+Documentation :
+Documentation if present must be doxygen friendly in case of use of it
+later in developpment
+

@@ -1,3 +1,18 @@
+/********************************************************************/
+ /*! \file: kScreen.c
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ *
+ * NOTES: NONE
+ *
+ * DEVELOPMENT HISTORY:
+ *
+ * jj/MM/yyyy Author Version Description Of Change
+ * ---------- ------ ------- ---------------------
+ * 12/05/2019  K.J    NONE   + Prolog
+ **/
+ /*******************************************************************/
+
 #include "kScreen.h"
 #include "kos.h"
 

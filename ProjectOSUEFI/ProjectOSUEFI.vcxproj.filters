@@ -33,6 +33,9 @@
     <ClInclude Include="kTypes.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="kString.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kos.c">
@@ -47,8 +50,19 @@
     <ClCompile Include="kUEFI.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="kCmd.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="kString.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\k.inf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="style.txt">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </Text>
   </ItemGroup>
 </Project>

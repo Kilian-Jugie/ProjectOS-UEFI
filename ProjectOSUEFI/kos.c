@@ -1,3 +1,18 @@
+/********************************************************************/
+ /*! \file: kos.c
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ *
+ * NOTES: NONE
+ *
+ * DEVELOPMENT HISTORY:
+ *
+ * jj/MM/yyyy Author Version Description Of Change
+ * ---------- ------ ------- ---------------------
+ * 12/05/2019  K.J    NONE   + Prolog
+ **/
+ /*******************************************************************/
+
 #include "kos.h"
 #include <Protocol/HiiFont.h>
 #include <Uefi/UefiSpec.h>
@@ -46,10 +61,16 @@ EFI_STATUS init_kOS(IN kUEFI* uefi, OUT kOS* out) {
 	SUCCESS_MANDATORY(init_kScreen(&out->screen));
 	kscreen_printInfos(&out->screen);
 
+	//kCHAR defPath[] = L"NONE";
+	init_kCmd(&out->cmd, L"NONE");
+	
+
 	//waitForKey();
 	cls();
 
 	printSplash();
+
+	kCmd_loop(&out->cmd);
 
 	/*EFI_HII_FONT_PROTOCOL* hii;
 	EFI_STATUS status = uefi->st->BootServices->LocateProtocol(&gEfiHiiFontProtocolGuid, NULL, (VOID * *)& hii);
@@ -65,7 +86,7 @@ EFI_STATUS init_kOS(IN kUEFI* uefi, OUT kOS* out) {
 
 	kprintf(L"azertyuio azertyuio azertyuio azertyuio azertyuio azertyuio azertyuio azertyuio azertyuio azertyuio \n");*/
 
-	sleep(30000000);
+	//sleep(30000000);
 
 	//waitForKey();
 

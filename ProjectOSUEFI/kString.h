@@ -1,5 +1,14 @@
 /********************************************************************/
- /*! \file: kUEFI.c
+ /** \file: kString.h
+ *
+ * \brief: string utilities
+ *
+ * Source: <kString.c>
+ * EXTERNAL VARIABLES:
+ *
+ * Name Description
+ * ---- -----------
+ * NONE NONE
  *
  * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
  *
@@ -9,15 +18,10 @@
  *
  * jj/MM/yyyy Author Version Description Of Change
  * ---------- ------ ------- ---------------------
- * 12/05/2019  K.J    NONE   + Prolog
+ * 14/05/2019  J.K    NONE    Creation + strcmp
  **/
  /*******************************************************************/
 
-#include "kUEFI.h"
-#include "kos.h"
+#include "kTypes.h"
 
-VOID init_kUEFI(kUEFI* out, EFI_HANDLE handle, EFI_SYSTEM_TABLE* st) {
-	D_CHECK_NULLPTR(out);
-	out->handle = handle;
-	out->st = st;
-}
+UINTN kstrcmp(IN CONST kCHAR* s1, IN CONST kCHAR* s2);

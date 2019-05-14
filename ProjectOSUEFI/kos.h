@@ -1,3 +1,27 @@
+/********************************************************************/
+ /** \file: kos.h
+ *
+ * \brief: Main file for kOS
+ *
+ * Source: <kos.c>
+ * EXTERNAL VARIABLES:
+ *
+ * Name Description
+ * ---- -----------
+ * NONE NONE
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: EDK2
+ *
+ * NOTES: NONE
+ *
+ * DEVELOPMENT HISTORY:
+ *
+ * jj/MM/yyyy Author Version Description Of Change
+ * ---------- ------ ------- ---------------------
+ * 12/05/2019  J.K    NONE    + Prolog
+ **/
+ /*******************************************************************/
+
 #ifndef __KOS_HEADER_
 #define __KOS_HEADER_
 
@@ -9,10 +33,9 @@
 #include "kScreen.h"
 #include "kUEFI.h"
 #include "kTypes.h"
+#include "kCmd.h"
 
 #define kDEBUG
-
-
 
 #define WIDE(x) L##x
 #define STR(x) #x
@@ -31,11 +54,14 @@
 #define D_MOD_OS gOS
 #define D_MOD_TXTUTILS_IN gOS->textUtils.in
 #define D_MOD_TXTUTILS_OUT gOS->textUtils.out
+#define D_MOD_TXTUTILS (D_MOD_TXTUTILS_IN && D_MOD_TXTUTILS_OUT)
 #else
-#define D_REQUIRE_KTEXTUTILS_IN
-#define D_REQUIRE_KTEXTUTILS_OUT
+#define D_MOD_KTEXTUTILS_IN
+#define D_MOD_KTEXTUTILS_OUT
+#define D_MOD_KTEXTUTILS
+#define D_MOD_OS
 #define D_CHECK_NULLPTR(x)
-#define D_REQUIRE_OS
+#define D_REQUIRE(x)
 #endif // DEBUG
 
 #ifdef kDEBUG
@@ -58,6 +84,7 @@ KosMain(
 typedef struct {
 	kTextUtils textUtils;
 	kScreen screen;
+	kCmd cmd;
 	kUEFI* uefi;
 } kOS;
 
@@ -86,7 +113,7 @@ VOID waitForKey();
 VOID cls();
 
 /*
-	Time: time*100ns 
+	time: /0.1ns 
 
 */
 VOID sleep(IN UINT64 time);
