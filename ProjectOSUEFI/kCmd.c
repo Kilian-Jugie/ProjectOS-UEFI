@@ -19,7 +19,7 @@
 #include "kos.h"
 #include "kString.h"
 
-EFI_STATUS init_kCmd(OUT kCmd* out, IN kPATH defaultPath) {
+EFI_STATUS InitKCmd(OUT kCmd* out, IN kPATH defaultPath) {
 	D_CHECK_NULLPTR(out);
 	D_CHECK_NULLPTR(defaultPath);
 
@@ -29,26 +29,26 @@ EFI_STATUS init_kCmd(OUT kCmd* out, IN kPATH defaultPath) {
 	return EFI_SUCCESS;
 }
 
-VOID read_key_nolock(IN EFI_KEY_DATA* d) {
+VOID ReadKeyNolock(IN EFI_KEY_DATA* d) {
 	D_REQUIRE(D_MOD_TXTUTILS_IN);
 	D_CHECK_NULLPTR(d);
 	gOS->textUtils.in->ReadKeyStrokeEx(gOS->textUtils.in, d);
 }
 
-VOID read_key(IN EFI_KEY_DATA* d) {
+VOID ReadKey(IN EFI_KEY_DATA* d) {
 	D_REQUIRE(D_MOD_TXTUTILS_IN);
 	D_CHECK_NULLPTR(d);
-	waitForKey();
+	WaitForKey();
 	gOS->textUtils.in->ReadKeyStrokeEx(gOS->textUtils.in, d);
 }
 
-EFI_STATUS kCmd_loop(IN kCmd* cmd) {
+EFI_STATUS KCmdLoop(IN kCmd* cmd) {
 	D_REQUIRE(D_MOD_TXTUTILS);
 
 	kCHAR* input;
 	SUCCESS_MANDATORY(gBs->AllocatePool(EfiBootServicesData,  KCMD_MAX_LENGTH*sizeof(kCHAR), (VOID**)&input));
 	EFI_KEY_DATA lastIn;
-	read_key_nolock(&lastIn);
+	ReadKeyNolock(&lastIn);
 
 	gOS->textUtils.out->EnableCursor(gOS->textUtils.out, TRUE);
 	
@@ -57,7 +57,7 @@ EFI_STATUS kCmd_loop(IN kCmd* cmd) {
 	while (!terminate) {
 		lastIn.Key.ScanCode = SCAN_F1;
 		while (lastIn.Key.ScanCode != SCAN_ESC && index < KCMD_MAX_LENGTH) {
-			read_key(&lastIn);
+			ReadKey(&lastIn);
 			if (lastIn.Key.UnicodeChar) {
 				kprintf(L"%c", lastIn.Key.UnicodeChar);
 				input[index] = lastIn.Key.UnicodeChar;
@@ -66,10 +66,10 @@ EFI_STATUS kCmd_loop(IN kCmd* cmd) {
 		}
 		input[--index] = '\0';
 		kprintf(L"\n'%s' VS 'exit'\n", input);
-		if (kstrcmp(L"exit", input) == 0)
+		if (KStrCmp(L"exit", input) == 0)
 			terminate = TRUE;
 		else {
-			kprintf(L"failed %d\n", kstrcmp(L"exit", input));
+			kprintf(L"failed %d\n", KStrCmp(L"exit", input));
 		}
 		index = 0;
 	}

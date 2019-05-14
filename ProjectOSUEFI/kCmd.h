@@ -40,12 +40,12 @@ typedef struct {
 	kPATH path;
 } kCmd;
 
-EFI_STATUS init_kCmd(OUT kCmd* out, IN kPATH defaultPath);
-EFI_STATUS kCmd_loop(IN kCmd* cmd);
-//kSTATUS kCmd_parse(IN CONST kCHAR* cmd);
+EFI_STATUS InitKCmd(OUT kCmd* out, IN kPATH defaultPath);
+EFI_STATUS KCmdLoop(IN kCmd* cmd);
+kSTATUS KCmdParse(IN CONST kCHAR* cmd);
 
-VOID read_key(IN EFI_KEY_DATA* d);
-VOID read_key_nolock(IN EFI_KEY_DATA* d);
+VOID ReadKey(IN EFI_KEY_DATA* d);
+VOID ReadKeyNolock(IN EFI_KEY_DATA* d);
 
 #endif // !__KCMD_HEADER_
 

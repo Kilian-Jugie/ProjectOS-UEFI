@@ -24,4 +24,4 @@
 
 #include "kTypes.h"
 
-UINTN kstrcmp(IN CONST kCHAR* s1, IN CONST kCHAR* s2);
+UINTN KStrCmp(IN CONST kCHAR* s1, IN CONST kCHAR* s2);

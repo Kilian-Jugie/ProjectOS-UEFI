@@ -16,12 +16,12 @@
 #include "kTextUtils.h"
 #include "kos.h"
 
-VOID kTextUtils_printInfos(IN kTextUtils* in) {
+VOID KTextUtilsPrintInfos(IN kTextUtils* in) {
 	D_CHECK_NULLPTR(in);
 	kprintf(L"Text stats: %u columns, %u rows\n", in->colNb, in->rowNb);
 }
 
-EFI_STATUS init_kTextUtils(OUT kTextUtils* out) {
+EFI_STATUS InitKTextUtils(OUT kTextUtils* out) {
 	D_CHECK_NULLPTR(out);
 	D_REQUIRE(D_MOD_OS);
 

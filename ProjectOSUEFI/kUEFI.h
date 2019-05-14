@@ -32,6 +32,6 @@ typedef struct {
 	EFI_SYSTEM_TABLE* st;
 } kUEFI;
 
-VOID init_kUEFI(OUT kUEFI* out, IN EFI_HANDLE handle, IN EFI_SYSTEM_TABLE* st);
+VOID InitKUEFI(OUT kUEFI* out, IN EFI_HANDLE handle, IN EFI_SYSTEM_TABLE* st);
 
 #endif // !__KUEFI_HEADER_

@@ -36,7 +36,7 @@ typedef struct {
 	UINTN colNb, rowNb;
 } kTextUtils;
 
-EFI_STATUS init_kTextUtils(OUT kTextUtils* out);
-VOID kTextUtils_printInfos(IN kTextUtils* in);
+EFI_STATUS InitKTextUtils(OUT kTextUtils* out);
+VOID KTextUtilsPrintInfos(IN kTextUtils* in);
 
 #endif

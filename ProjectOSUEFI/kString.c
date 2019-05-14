@@ -17,7 +17,7 @@
 #include "kString.h"
 
 
-UINTN kstrcmp(IN CONST kCHAR* s1, IN CONST kCHAR* s2) {
+UINTN KStrCmp(IN CONST kCHAR* s1, IN CONST kCHAR* s2) {
 	UINTN i = 0;
 	while (s1[i] && s2[i]) {
 		++i;

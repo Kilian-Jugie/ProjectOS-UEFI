@@ -18,7 +18,7 @@
 
 #include <Protocol/UgaDraw.h>
 
-EFI_STATUS init_kScreen(OUT kScreen* out) {
+EFI_STATUS InitKScreen(OUT kScreen* out) {
 	D_CHECK_NULLPTR(out);
 	D_REQUIRE(D_MOD_OS);
 
@@ -31,7 +31,7 @@ EFI_STATUS init_kScreen(OUT kScreen* out) {
 	return status;
 }
 
-VOID kscreen_printInfos(IN kScreen* in) {
+VOID KScreenPrintInfos(IN kScreen* in) {
 	D_CHECK_NULLPTR(in);
 	kprintf(L"Screen stats: %ux%u (%ubits, %uHz)\n", in->height, in->width, in->colorDepth, in->refresh);
 }

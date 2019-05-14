@@ -34,8 +34,8 @@ typedef struct {
 	UINT32 refresh;
 } kScreen;
 
-EFI_STATUS init_kScreen(OUT kScreen* out);
-VOID kscreen_printInfos(IN kScreen* in);
+EFI_STATUS InitKScreen(OUT kScreen* out);
+VOID KScreenPrintInfos(IN kScreen* in);
 
 #endif // !__KSCREEN_HEADER_
 
