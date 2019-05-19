@@ -78,9 +78,18 @@
 #define SUCCESS_MANDATORY_NO_INIT(x) x
 #endif
 
+/*!
+	\brief Basic printf using UEFI features
+*/
 UINTN kprintf(CONST CHAR16* Format, ...);
+/*!
+	\brief like printf but to (equivalent) stderr
+*/
 UINTN keprintf(CONST CHAR16* Format, ...);
 
+/*!
+	\brief Entry point
+*/
 EFI_STATUS
 EFIAPI
 KosMain(
@@ -95,36 +104,71 @@ typedef struct {
 	kUEFI* uefi;
 } kOS;
 
-//Initialized in init_kOS
+//Initialized in InitKOS
+//The instance of the OS
 kOS* gOS;
 kUEFI* gUEFI;
 EFI_SYSTEM_TABLE* gSt;
 EFI_BOOT_SERVICES* gBs;
+//Last error returned by Efi function
+//Should be looked when a function returns ST_ERR_UEFI
+EFI_STATUS gEfiLastError;
 
 
 //kOS
+/*!
+	\brief Initialize all required components for the OS
+*/
 EFI_STATUS InitKOS(IN kUEFI* uefi, OUT kOS* out);
+/*!
+	\brief Debug assert which print a message in the edk2 vm
+	\param FileName Name of file which throws the error
+	\param LineNumber Line which throws the error
+	\param Description Description
+*/
 VOID KDebugAssert(IN CONST CHAR8* FileName, IN UINTN LineNumber, IN CONST CHAR8* Description);
 
 //General
-//Check if a function has successfully being executed
+/*!
+	\brief Test if a EFI_STATUS OR a kSTATUS is successfull
+	Should be moved !
+*/
 BOOL Success(IN EFI_STATUS s);
 
+/*!
+	\brief Print a basic loading screen
+*/
 VOID PrintSplash();
 
-
+/*!
+	\brief Stop the OS in a fatal status
+	\param file File from the error
+	\param line Line from the error
+	\param cause Line who caused the error
+	\param description A message which describe the error
+	\param code Optional code from the error
+*/
 VOID FatalError(IN EFI_STRING file, IN UINT16 line, IN EFI_STRING cause, IN EFI_STRING description, IN UINTN code);
 
+/*!
+	\brief Wait a key to be entered
+*/
 VOID WaitForKey();
 
+/*!
+	\brief Clear the screen
+*/
 VOID cls();
 
 /*
-	time: /0.1ns 
-
+	\brief Tell the os to wait
+	\param time Time to wait (/0.1ns)
 */
 VOID Sleep(IN UINT64 time);
 
+/*
+	\brief Print text at position \a x;\a y with format like printf
+*/
 VOID KPrintXY(IN UINTN x, IN UINTN y, IN CHAR16* Format, ...);
 
 

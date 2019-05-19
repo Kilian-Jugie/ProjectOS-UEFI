@@ -41,10 +41,26 @@ typedef struct {
 } kCmd;
 
 EFI_STATUS InitKCmd(OUT kCmd* out, IN kPATH defaultPath);
+/*!
+	\brief Wait user input and process it
+*/
 EFI_STATUS KCmdLoop(IN kCmd* cmd);
+
+/*!
+	\brief Parse an input
+*/
 kSTATUS KCmdParse(IN CONST kCHAR* cmd);
 
+/*!
+	\brief Wait for a key and get it
+	Should be moved !
+*/
 VOID ReadKey(IN EFI_KEY_DATA* d);
+
+/*!
+	\brief Get a key change without locking state
+	Should be moved !
+*/
 VOID ReadKeyNolock(IN EFI_KEY_DATA* d);
 
 #endif // !__KCMD_HEADER_

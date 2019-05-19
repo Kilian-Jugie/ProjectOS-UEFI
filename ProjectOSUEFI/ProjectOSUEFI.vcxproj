@@ -87,6 +87,7 @@
   <ItemGroup>
     <ClInclude Include="kCmd.h" />
     <ClInclude Include="kError.h" />
+    <ClInclude Include="kEvent.h" />
     <ClInclude Include="kos.h" />
     <ClInclude Include="kScreen.h" />
     <ClInclude Include="kString.h" />
@@ -97,6 +98,7 @@
   <ItemGroup>
     <ClCompile Include="kCmd.c" />
     <ClCompile Include="kError.c" />
+    <ClCompile Include="kEvent.c" />
     <ClCompile Include="kos.c" />
     <ClCompile Include="kScreen.c" />
     <ClCompile Include="kString.c" />

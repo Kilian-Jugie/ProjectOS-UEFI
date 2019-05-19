@@ -15,6 +15,7 @@
 
 #include "kos.h"
 #include "kError.h"
+#include "kEvent.h"
 #include <Protocol/HiiFont.h>
 #include <Uefi/UefiSpec.h>
 
@@ -39,6 +40,15 @@ EFI_STATUS EFIAPI KosMain(
 	return EFI_SUCCESS;
 }
 
+BOOL eventcallbacktest(VOID* data) {
+	kprintf(L"Ceci est un event déclenché !\n");
+	return TRUE;
+}
+
+BOOL eventcallbacktest2(VOID* data) {
+	kprintf(L"Ceci est un event déclenché avec comme données %s !\n", (kCHAR*)data);
+	return TRUE;
+}
 
 EFI_STATUS InitKOS(IN kUEFI* uefi, OUT kOS* out) {
 	D_CHECK_NULLPTR(uefi);
@@ -67,12 +77,28 @@ EFI_STATUS InitKOS(IN kUEFI* uefi, OUT kOS* out) {
 	//kCHAR defPath[] = L"NONE";
 	InitKCmd(&out->cmd, L"NONE");
 	
+	SUCCESS_MANDATORY(InitEventSystem());
 
 	//waitForKey();
 	cls();
 
-	AddCallback(1, KOSStdCallback);
-	ThrowError(1);
+	//kCHAR k[4096];
+
+	UINTN id = CreateEvent(NULL);
+
+	AddCallbackToEvent(GetEvent(id), eventcallbacktest);
+
+	ThrowEventId(id, NULL);
+
+	AddCallbackToEvent(GetEvent(id), eventcallbacktest2);
+
+	ThrowEventId(id, L"Ceci est un test incroyable !");
+
+	FreeEvent(GetEvent(id));
+
+
+	//AddErrorCallback(1, KOSStdCallback);
+	//ThrowError(1, L"coucou musulman");
 
 	//PrintSplash();
 
@@ -97,6 +123,8 @@ EFI_STATUS InitKOS(IN kUEFI* uefi, OUT kOS* out) {
 	WaitForKey();
 
 	SUCCESS_MANDATORY(FreeErrorMap());
+	SUCCESS_MANDATORY(FreeEventSystem());
+
 
 	WaitForKey();
 
