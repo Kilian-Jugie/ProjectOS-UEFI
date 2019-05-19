@@ -35,12 +35,6 @@ all .h file must have a prolog with the form :
  * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
  * 
  * NOTES: NONE
- * 
- * DEVELOPMENT HISTORY: 
- * 
- * jj/MM/yyyy Author Version Description Of Change 
- * ---------- ------ ------- --------------------- 
- * MANDATORY  MANDAT NONE    MANDATORY
  **/
  /*******************************************************************/
 

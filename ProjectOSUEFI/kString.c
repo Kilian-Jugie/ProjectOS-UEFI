@@ -6,12 +6,6 @@
  * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
  *
  * NOTES: async + SSE2 ?
- *
- * DEVELOPMENT HISTORY:
- *
- * jj/MM/yyyy Author Version Description Of Change
- * ---------- ------ ------- ---------------------
- * 14/05/2019  K.J    NONE   Creation + strcmp
  **/
  /*******************************************************************/
 #include "kString.h"

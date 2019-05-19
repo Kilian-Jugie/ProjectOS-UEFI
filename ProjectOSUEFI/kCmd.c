@@ -6,12 +6,6 @@
  * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
  *
  * NOTES: write loop might use events
- *
- * DEVELOPMENT HISTORY:
- *
- * jj/MM/yyyy Author Version Description Of Change
- * ---------- ------ ------- ---------------------
- * 12/05/2019  K.J    NONE   + Prolog + kCmdloop
  **/
  /*******************************************************************/
 

@@ -1,3 +1,21 @@
+/********************************************************************/
+ /** \file: kEvent.h
+ *
+ * \brief: Event system and handling
+ *
+ * Source: <kEvent.c>
+ * EXTERNAL VARIABLES:
+ *
+ * Name Description
+ * ---- -----------
+ * NONE NONE
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ *
+ * NOTES: Async
+ **/
+ /*******************************************************************/
+
 #ifndef __KEVENTDISPATCHER_H_
 #define __KEVENTDISPATCHER_H_
 #include "kTypes.h"

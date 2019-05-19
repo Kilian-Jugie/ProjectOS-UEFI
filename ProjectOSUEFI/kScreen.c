@@ -6,10 +6,6 @@
  * NOTES: NONE
  *
  * DEVELOPMENT HISTORY:
- *
- * jj/MM/yyyy Author Version Description Of Change
- * ---------- ------ ------- ---------------------
- * 12/05/2019  K.J    NONE   + Prolog
  **/
  /*******************************************************************/
 

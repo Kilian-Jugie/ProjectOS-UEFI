@@ -1,3 +1,14 @@
+/********************************************************************/
+ /*! \file: kEvent.c
+ *
+ * \brief: implementation event system
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ *
+ * NOTES: async ?
+ **/
+ /*******************************************************************/
+
 #include "kEvent.h"
 #include "kos.h"
 

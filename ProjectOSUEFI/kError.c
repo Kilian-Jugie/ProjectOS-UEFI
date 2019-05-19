@@ -1,3 +1,12 @@
+/********************************************************************/
+ /*! \file: kError.c
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ *
+ * NOTES: NONE
+ **/
+ /*******************************************************************/
+
 #include "kError.h"
 #include "kos.h"
 #include "kString.h"

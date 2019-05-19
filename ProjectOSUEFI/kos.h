@@ -13,12 +13,6 @@
  * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: EDK2
  *
  * NOTES: NONE
- *
- * DEVELOPMENT HISTORY:
- *
- * jj/MM/yyyy Author Version Description Of Change
- * ---------- ------ ------- ---------------------
- * 12/05/2019  J.K    NONE    + Prolog
  **/
  /*******************************************************************/
 

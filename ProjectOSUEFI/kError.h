@@ -1,3 +1,21 @@
+/********************************************************************/
+ /** \file: kError.h
+ *
+ * \brief: Error event standard system
+ *
+ * Source: <kError.c>
+ * EXTERNAL VARIABLES:
+ *
+ * Name Description
+ * ---- -----------
+ * NONE NONE
+ *
+ * ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS: NONE
+ *
+ * NOTES: To pass with kEvent !
+ **/
+ /*******************************************************************/
+
 #ifndef __KERROR_HEADER_
 #define __KERROR_HEADER_
 
